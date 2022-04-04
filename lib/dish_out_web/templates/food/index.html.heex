@@ -1,0 +1,32 @@
+<h1>Listing Delish foods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Ingredients</th>
+      <th>Summary</th>
+      <th>Date</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for food <- @delish_foods do %>
+    <tr>
+      <td><%= food.title %></td>
+      <td><%= food.ingredients %></td>
+      <td><%= food.summary %></td>
+      <td><%= food.date %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.food_path(@conn, :show, food) %></span>
+        <span><%= link "Edit", to: Routes.food_path(@conn, :edit, food) %></span>
+        <span><%= link "Delete", to: Routes.food_path(@conn, :delete, food), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Food", to: Routes.food_path(@conn, :new) %></span>
