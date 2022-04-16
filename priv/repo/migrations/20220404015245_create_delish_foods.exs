@@ -5,7 +5,7 @@ defmodule DishOut.Repo.Migrations.CreateDelishFoods do
     create table(:delish_foods) do
       add :title, :string
       add :ingredients, :string
-      add :summary, :string
+      add :summary, :text
       add :date, :integer
 
       timestamps()

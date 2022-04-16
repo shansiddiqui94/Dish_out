@@ -20,5 +20,6 @@ defmodule DishOut.Foods.Food do
     food
     |> cast(attrs, [:title, :ingredients, :summary, :date])
     |> validate_required([:title, :ingredients, :summary, :date])
+    
   end
 end

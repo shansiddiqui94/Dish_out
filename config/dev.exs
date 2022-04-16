@@ -1,13 +1,14 @@
 import Config
 
-# Configure your database
+
 config :dish_out, DishOut.Repo,
-  username: "ssidd",
-  password: "shan",
-  hostname: "localhost",
-  database: "dish_out_dev",
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+   username: "postgres",
+   password: "postgres",
+   hostname: "localhost",
+   database: "dish_out_dev",
+   port: 5433,
+   show_sensitive_data_on_connection_error: true,
+   pool_size: 10
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -25,7 +26,9 @@ config :dish_out, DishOutWeb.Endpoint,
   secret_key_base: "CNBXp4MGo9LFrU3wavfk3maExwwE3ToVCMprAFIiG6q8sRFItnvmbWEVuPXlwBkE",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+      tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
+
   ]
 
 # ## SSL Support
